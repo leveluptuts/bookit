@@ -5,6 +5,6 @@
 <style lang="scss">
 	div {
 		padding: 20px;
-		background: white;
+		background: var(--bookit_bg, white);
 	}
 </style>
