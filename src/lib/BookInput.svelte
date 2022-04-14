@@ -1,19 +1,12 @@
 <script lang="ts">
-	export let options;
-	export let selected;
+	export let value;
 	export let label;
 </script>
 
 <div>
 	<label>
 		<span>{label}</span>
-		<select bind:value={selected}>
-			{#each options as option}
-				<option value={option}>
-					{option}
-				</option>
-			{/each}
-		</select>
+		<input type="text" bind:value />
 	</label>
 </div>
 
@@ -25,13 +18,13 @@
 		display: block;
 	}
 
-	select {
+	input {
 		background-color: transparent;
 		border-radius: 0.25rem;
-		width: 100%;
-		color: white;
 		border: var(--bookit_line);
+		color: white;
 	}
+
 	div {
 		margin-bottom: 5px;
 	}
