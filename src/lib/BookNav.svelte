@@ -6,26 +6,31 @@
 			icon: string;
 		}[];
 	};
+
+	let filter = '';
 </script>
 
-<nav>
-	<ul>
-		{#each Object.entries(tree) as [parent, stories] (parent)}
-			<li>
-				<h4>{parent}</h4>
-				<ul class="bookit_link_list">
-					{#each stories as story}
-						<li>
-							<a href={`/book/${story.parent}-${story.title}`}>
-								{story.title}
-							</a>
-						</li>
-					{/each}
-				</ul>
-			</li>
-		{/each}
-	</ul>
-</nav>
+<div class="bookit_navbar">
+	<label><span>Filter:</span><input type="text" bind:value={filter} /></label>
+	<nav>
+		<ul>
+			{#each Object.entries(tree) as [parent, stories] (parent)}
+				<li>
+					<h4>{parent}</h4>
+					<ul class="bookit_link_list">
+						{#each stories.filter((story) => story.title.includes(filter)) as story}
+							<li>
+								<a href={`/book/${story.parent}-${story.title}`}>
+									{story.title}
+								</a>
+							</li>
+						{/each}
+					</ul>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+</div>
 
 <style lang="scss">
 	h4 {
@@ -37,12 +42,12 @@
 		color: white;
 	}
 
-	nav {
+	.bookit_navbar {
 		color: var(--bookit_color, #fff);
 		background: var(--bookit_bg, rgba(0, 0, 0, 0.12));
 		border-right: var(--bookit_line);
-
 		height: 100%;
+		padding: 20px 0;
 	}
 
 	nav a {
@@ -55,5 +60,24 @@
 
 	.bookit_link_list li {
 		margin-bottom: 5px;
+	}
+
+	label {
+		margin: 1rem 10px;
+	}
+
+	label span {
+		color: white;
+		font-size: 12px;
+		margin-bottom: 5px;
+		display: block;
+	}
+
+	input {
+		background-color: transparent;
+		border-radius: 0.25rem;
+		border: solid 1px white;
+		color: white;
+		width: 100%;
 	}
 </style>

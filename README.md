@@ -1,10 +1,12 @@
-![Bookit Logo](./lilboo.png)
+![Gangsta Boo](./lilboo.png)
 
 # Bookit
 
 ## The least spooky way to build your components.
 
-This repo is a place holder for a new Svelte Kit project from LevelUpTutorials.com
+Pronounced Boo-Kit
+
+A new Story environment with a different approach. Finely tuned to work directly within your Svelte Kit projects. Stay tuned for more information and docs on how to use and add to your projects.
 
 ### Why it's dope
 

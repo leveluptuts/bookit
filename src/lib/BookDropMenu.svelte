@@ -11,6 +11,7 @@
 	<button on:click={() => (is_active = !is_active)}>{buttonText}</button>
 	{#if is_active}
 		<div class="bookit_drop_menu">
+			<slot />
 			<input type="text" bind:value={input} />
 			{#each options as option}
 				<button on:click={() => onUpdate(option.value)}>{option.label}</button>

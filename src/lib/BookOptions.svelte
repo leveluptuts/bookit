@@ -32,6 +32,7 @@
 		color: white;
 		border: var(--bookit_line);
 	}
+
 	div {
 		margin-bottom: 5px;
 	}
