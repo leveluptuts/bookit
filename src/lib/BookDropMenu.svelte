@@ -1,18 +1,26 @@
 <script lang="ts">
+	import BookIcon from './BookIcon.svelte';
+
 	export let buttonText = 'Click Me!';
 	export let onUpdate;
 	export let options;
-	export let input;
+
+	export let icon: 'frame' | 'component' | 'size' | 'canvas' | null = null;
 
 	let is_active = false;
 </script>
 
 <div class="bookit-container">
-	<button on:click={() => (is_active = !is_active)}>{buttonText}</button>
+	<button on:click={() => (is_active = !is_active)}>
+		{#if icon}
+			<BookIcon name={icon} />
+		{/if}
+		{buttonText}</button
+	>
 	{#if is_active}
 		<div class="bookit_drop_menu">
 			<slot />
-			<input type="text" bind:value={input} />
+
 			{#each options as option}
 				<button on:click={() => onUpdate(option.value)}>{option.label}</button>
 			{/each}
@@ -27,14 +35,11 @@
 		border: var(--bookit_line);
 		color: white;
 		font-weight: 400;
+		font-size: 12px;
 		font-family: monospace;
-	}
-
-	input {
-		background-color: transparent;
-		border-radius: 0.25rem;
-		border: var(--bookit_line);
-		color: white;
+		display: flex;
+		gap: 5px;
+		align-items: center;
 	}
 
 	button:hover {

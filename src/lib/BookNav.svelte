@@ -1,4 +1,6 @@
 <script lang="ts">
+	import BookIcon from './BookIcon.svelte';
+
 	export let tree: {
 		[key: string]: {
 			title: string;
@@ -20,7 +22,8 @@
 					<ul class="bookit_link_list">
 						{#each stories.filter((story) => story.title.includes(filter)) as story}
 							<li>
-								<a href={`/book/${story.parent}-${story.title}`}>
+								<a class="bookit_link" href={`/book/${story.parent}-${story.title}`}>
+									<BookIcon name="component" />
 									{story.title}
 								</a>
 							</li>
@@ -60,6 +63,12 @@
 
 	.bookit_link_list li {
 		margin-bottom: 5px;
+	}
+
+	.bookit_link {
+		display: flex;
+		gap: 5px;
+		align-items: center;
 	}
 
 	label {

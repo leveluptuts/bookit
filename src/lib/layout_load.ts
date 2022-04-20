@@ -1,4 +1,4 @@
-import { createTree } from '@leveluptuts/bookit';
+import { createTree } from './create_tree';
 
 export async function layoutLoad() {
 	const tree = createTree();

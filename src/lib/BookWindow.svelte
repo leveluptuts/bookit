@@ -8,6 +8,7 @@
 	export let canvas_bg = '#111';
 	export let frame_bg = '#ffffff';
 	export let frame_padding = 20;
+	export let frame_boarder = true;
 	export let checker = false;
 
 	$: {
@@ -16,6 +17,7 @@
 		$bookit_state.canvasBg = canvas_bg;
 		$bookit_state.frameBg = frame_bg;
 		$bookit_state.checker = checker;
+		$bookit_state.frameDash = frame_boarder;
 	}
 </script>
 
@@ -49,7 +51,10 @@
 								><rect x="0" y="0" width="100%" height="100%" fill="url(#checkerboard)" /></svg
 							>
 						{/if}
-						<div class="bookit_content">
+						<div
+							class="bookit_content"
+							style:border={$bookit_state.frameDash ? 'dashed 1px #999' : 'none'}
+						>
 							<slot />
 						</div>
 					</div>
@@ -76,7 +81,6 @@
 	.bookit_content {
 		position: relative;
 		z-index: 1;
-		border: dashed 1px #999;
 	}
 
 	.bookit_canvas {

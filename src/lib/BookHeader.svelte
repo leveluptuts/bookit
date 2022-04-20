@@ -5,18 +5,20 @@
 
 <div class="wrapper">
 	<BookDropMenu
-		bind:input={$bookit_state.canvasBg}
+		icon="canvas"
 		buttonText="Canvas Bg"
 		onUpdate={(color) => ($bookit_state.canvasBg = color)}
 		options={[
 			{ label: 'Black', value: '#000' },
 			{ label: 'White', value: '#fff' }
 		]}
-	/>
+	>
+		<input type="text" bind:value={$bookit_state.canvasBg} />
+	</BookDropMenu>
 
 	<BookDropMenu
-		bind:input={$bookit_state.frameBg}
 		buttonText="Frame Bg"
+		icon="frame"
 		onUpdate={(color) => ($bookit_state.frameBg = color)}
 		options={[
 			{ label: 'Black', value: '#000' },
@@ -27,9 +29,14 @@
 			<input type="checkbox" bind:checked={$bookit_state.checker} />
 			Checker
 		</label>
+		<label>
+			<input type="checkbox" bind:checked={$bookit_state.frameDash} />
+			Dashed Border
+		</label>
+		<input type="text" bind:value={$bookit_state.frameBg} />
 	</BookDropMenu>
 	<BookDropMenu
-		bind:input={$bookit_state.frameSize}
+		icon="size"
 		buttonText="Size Presets"
 		onUpdate={(size) => ($bookit_state.frameSize = size)}
 		options={[
@@ -38,14 +45,34 @@
 			{ label: 'Med 640px', value: [640, 'auto'] },
 			{ label: 'Large 960px', value: [960, 'auto'] }
 		]}
-	/>
+	>
+		<div class="joint-input">
+			<input type="number" bind:value={$bookit_state.frameSize[0]} /> x
+			<input type="number" bind:value={$bookit_state.frameSize[1]} />
+		</div>
+	</BookDropMenu>
 </div>
 
 <style>
+	input {
+		background-color: transparent;
+		border-radius: 0.25rem;
+		border: var(--bookit_line);
+		color: white;
+	}
+
 	label {
 		color: white;
 		font-size: 14px;
 		font-family: monospace;
+	}
+
+	.joint-input {
+		display: flex;
+		gap: 5px;
+		align-items: center;
+		color: white;
+		justify-content: space-between;
 	}
 
 	.wrapper {
