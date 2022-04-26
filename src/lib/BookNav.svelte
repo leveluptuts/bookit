@@ -45,9 +45,10 @@
 		height: var(--bookit_header_height);
 		font-family: monospace;
 		margin: 0;
-		padding: 8px 20px;
+		padding: 8px 10px;
 		border-bottom: var(--bookit_line);
 		color: var(--bookit_color, white);
+		white-space: nowrap;
 	}
 
 	.bookit_navbar {
@@ -55,7 +56,7 @@
 		background: var(--bookit_bg, rgba(0, 0, 0, 0.12));
 		border-right: var(--bookit_line);
 		height: 100%;
-		padding: 20px 0;
+		padding: 10px 0;
 	}
 
 	nav a {
@@ -63,17 +64,20 @@
 	}
 
 	.bookit_link_list {
-		padding: 20px;
+		padding: 10px;
 	}
 
 	.bookit_link_list li {
 		margin-bottom: 5px;
+		white-space: nowrap;
 	}
 
 	.bookit_link {
 		display: flex;
 		gap: 5px;
-		align-items: center;
+		align-items: top;
+		line-height: 1.5;
+		font-size: 12px;
 	}
 
 	label {

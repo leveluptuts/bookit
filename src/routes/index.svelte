@@ -7,6 +7,14 @@
 	<h4>The least spooky way to build your components.</h4>
 	<h5>Pronounced Boo-Kits</h5>
 	<a href="/book">Bookit Demo</a>
+
+	<ul>
+		<li>Built for Svelte Kit</li>
+		<li>No webkit, or extra build process</li>
+		<li>Integrated into your app</li>
+		<li>Themeable</li>
+		<li>Simple</li>
+	</ul>
 </div>
 
 <style>
