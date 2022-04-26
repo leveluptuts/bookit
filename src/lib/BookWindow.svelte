@@ -28,7 +28,7 @@
 	</div>
 </div>
 
-<style lang="scss">
+<style>
 	:global(body) {
 		--toy-color-int: var(--toy-color, hsla(0, 0%, 20%, 1));
 		--toy-background-int: var(--toy-bg, white);

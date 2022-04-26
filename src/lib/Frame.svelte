@@ -70,7 +70,7 @@
 </div>
 <slot name="props" />
 
-<style lang="scss">
+<style>
 	.checker {
 		position: absolute;
 		top: 0;

@@ -40,7 +40,7 @@
 	</nav>
 </div>
 
-<style lang="scss">
+<style>
 	h4 {
 		height: var(--bookit_header_height);
 		font-family: monospace;
