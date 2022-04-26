@@ -1,5 +1,6 @@
 <script lang="ts">
 	import BookIcon from './BookIcon.svelte';
+	import { bookit_state } from './state';
 
 	export let tree: {
 		[key: string]: {
@@ -22,7 +23,11 @@
 					<ul class="bookit_link_list">
 						{#each stories.filter((story) => story.title.includes(filter)) as story}
 							<li>
-								<a class="bookit_link" href={`/book/${story.parent}-${story.title}`}>
+								<a
+									on:click={() => ($bookit_state.selectedStory = null)}
+									class="bookit_link"
+									href={`/book/${story.parent}-${story.title}`}
+								>
 									<BookIcon name="component" />
 									{story.title}
 								</a>
@@ -40,9 +45,9 @@
 		height: var(--bookit_header_height);
 		font-family: monospace;
 		margin: 0;
-		padding: 8px;
+		padding: 8px 20px;
 		border-bottom: var(--bookit_line);
-		color: white;
+		color: var(--bookit_color, white);
 	}
 
 	.bookit_navbar {
@@ -73,6 +78,7 @@
 
 	label {
 		margin: 1rem 10px;
+		display: block;
 	}
 
 	label span {

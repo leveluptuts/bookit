@@ -1,0 +1,85 @@
+html {
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+/* Reset margins and paddings on most elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+p,
+pre,
+blockquote,
+figure,
+hr {
+	margin: 0;
+	padding: 0;
+}
+
+hr {
+	border-bottom: solid 1px var(--lineColor);
+	border-top: none;
+	margin: 2rem 0;
+}
+
+/* Removes discs from ul */
+ul {
+	list-style: none;
+}
+
+/* Reset forms and buttons */
+input,
+textarea,
+select,
+button {
+	color: inherit;
+	font: inherit;
+	letter-spacing: inherit;
+}
+
+/* Easy responsive for media elements */
+embed,
+iframe,
+img,
+object,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+/* Useful table styles */
+table {
+	table-layout: auto;
+	width: 100%;
+}
+
+/* Hidden */
+[hidden] {
+	display: none !important;
+}
+
+/* noscript styles */
+noscript {
+	display: block;
+	margin-bottom: 1rem;
+	margin-top: 1rem;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}

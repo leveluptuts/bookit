@@ -7,7 +7,7 @@
 
 <div class="book-wrapper">
 	<Splitpanes>
-		<Pane size="14">
+		<Pane size="15">
 			<BookNav {tree} />
 		</Pane>
 		<Pane>

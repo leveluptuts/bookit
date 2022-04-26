@@ -1,4 +1,4 @@
-![Gangsta Boo](./lilboo.png)
+![Gangsta Boo](./static/lilboo.png)
 
 # Bookit
 
