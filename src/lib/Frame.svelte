@@ -89,14 +89,6 @@
 	.bookit_frame_wrapper {
 		margin-top: 20px;
 		position: relative;
-		&.selected {
-			h4 {
-				color: var(--bookit_accent, #f0c05e);
-			}
-			.bookit_frame {
-				outline: 1px solid var(--bookit_accent, #f0c05e);
-			}
-		}
 	}
 
 	.bookit_frame {
@@ -118,5 +110,12 @@
 		top: -25px;
 		font-size: 12px;
 		opacity: 0.6;
+	}
+
+	.bookit_frame_wrapper.selected h4 {
+		color: var(--bookit_accent, #f0c05e);
+	}
+	.bookit_frame_wrapper.selected .bookit_frame {
+		outline: 1px solid var(--bookit_accent, #f0c05e);
 	}
 </style>
