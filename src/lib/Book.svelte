@@ -16,7 +16,7 @@
 	</Splitpanes>
 </div>
 
-<style lang="scss" global>
+<style global>
 	.book-wrapper {
 		--bookit_header_height: 40px;
 		--bookit_line_color: rgb(255 255 255 / 0.1);
