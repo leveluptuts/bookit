@@ -10,6 +10,8 @@
 	export let title: string = 'Frame';
 	export let controls;
 
+	// Local controls are what passes the props from the "Controls" section to the slot props
+	// This makes props available to the story component
 	$: localControls = controls;
 
 	$: {
@@ -21,9 +23,6 @@
 		$bookit_state.frameDash = boarder;
 	}
 
-	$: console.log($bookit_state);
-	$: console.log(localControls, title);
-
 	$: if (title === $bookit_state?.selectedStory?.title) {
 		localControls = $bookit_state?.selectedStory?.controls;
 	}
@@ -31,8 +30,14 @@
 
 <div
 	class="bookit_frame_wrapper"
-	style:width={$bookit_state.frameSize[0] + 'px'}
+	style:width={$bookit_state.frameSize[0] +
+		(typeof $bookit_state.frameSize[0] === 'number' ? 'px' : '')}
 	class:selected={$bookit_state?.selectedStory?.title === title}
+	on:click={() =>
+		($bookit_state.selectedStory = {
+			title,
+			controls
+		})}
 >
 	<h4>{title}</h4>
 	<div
@@ -46,29 +51,25 @@
 		class="bookit_frame"
 		style:height={$bookit_state.frameSize[1] +
 			(typeof $bookit_state.frameSize[1] === 'number' ? 'px' : '')}
-		style:width={$bookit_state.frameSize[0] + 'px'}
+		style:width={$bookit_state.frameSize[0] +
+			(typeof $bookit_state.frameSize[0] === 'number' ? 'px' : '')}
 		style:overflow={responsive ? 'auto' : 'initial'}
 		style:resize={responsive ? 'horizontal' : 'initial'}
 	>
 		{#if $bookit_state.checker}
-			<svg class="checker" fill="none"
-				><pattern id="checkerboard" width="64" height="64" patternUnits="userSpaceOnUse"
-					><rect x="0" y="0" width="32" height="32" fill="rgb(0 0 0 / 0.3)" /><rect
-						x="32"
-						y="32"
-						width="32"
-						height="32"
-						fill="rgb(0 0 0 / 0.3)"
-					/></pattern
-				><rect x="0" y="0" width="100%" height="100%" fill="url(#checkerboard)" /></svg
-			>
+			<svg class="checker" fill="none">
+				<pattern id="checkerboard" width="64" height="64" patternUnits="userSpaceOnUse">
+					<rect x="0" y="0" width="32" height="32" fill="rgb(0 0 0 / 0.3)" />
+					<rect x="32" y="32" width="32" height="32" fill="rgb(0 0 0 / 0.3)" />
+				</pattern>
+				<rect x="0" y="0" width="100%" height="100%" fill="url(#checkerboard)" />
+			</svg>
 		{/if}
 		<div class="bookit_content" style:border={$bookit_state.frameDash ? 'dashed 1px #999' : 'none'}>
 			<slot props={localControls} />
 		</div>
 	</div>
 </div>
-<slot name="props" />
 
 <style>
 	.checker {
@@ -115,6 +116,7 @@
 	.bookit_frame_wrapper.selected h4 {
 		color: var(--bookit_accent, #f0c05e);
 	}
+
 	.bookit_frame_wrapper.selected .bookit_frame {
 		outline: 1px solid var(--bookit_accent, #f0c05e);
 	}
