@@ -4,6 +4,8 @@
 
 bookit.leveluptutorials.com
 
+[Demo](https://bookit.leveluptutorials.com/book)
+
 ## The least spooky way to build your components.
 
 Pronounced Boo-Kit or Book-It
