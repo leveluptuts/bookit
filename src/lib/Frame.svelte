@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Portal from './utils/Portal.svelte';
 	import { bookit_state } from './state';
 	export let responsive = true;
 	export let size: [number, string | number] = [700, 'auto'];
@@ -25,6 +26,14 @@
 
 	$: if (title === $bookit_state?.selectedStory?.title) {
 		localControls = $bookit_state?.selectedStory?.controls;
+	}
+
+	let iframeRef: HTMLIFrameElement;
+
+	let sandbox;
+	$: if (typeof window !== 'undefined') {
+		sandbox = window?.location?.origin + '/book/sandbox?story=' + title;
+		console.log('sandbox', sandbox);
 	}
 </script>
 
@@ -66,7 +75,13 @@
 			</svg>
 		{/if}
 		<div class="bookit_content" style:border={$bookit_state.frameDash ? 'dashed 1px #999' : 'none'}>
-			<slot props={localControls} />
+			{#if iframeRef}
+				<iframe bind:this={iframeRef} />
+			{/if}
+
+			<Portal target={iframeRef}>
+				<slot props={localControls} />
+			</Portal>
 		</div>
 	</div>
 </div>
@@ -119,5 +134,11 @@
 
 	.bookit_frame_wrapper.selected .bookit_frame {
 		outline: 1px solid var(--bookit_accent, #f0c05e);
+	}
+
+	iframe {
+		width: 100%;
+		height: 100%;
+		border: none;
 	}
 </style>
