@@ -1,13 +1,18 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { Pane, Splitpanes } from 'svelte-splitpanes';
-	import Controls from './Controls.svelte';
 	import { bookit_state } from './state';
+	import Controls from './Controls.svelte';
 	import BookHeader from './BookHeader.svelte';
+
+	// props
 	export let canvas_bg = '#111';
 
-	$: {
+	onMount(() => {
+		// If you pass canvas_bg as a prop, it will update the
+		// global state store
 		$bookit_state.canvasBg = canvas_bg;
-	}
+	});
 </script>
 
 <div style:height="100%">

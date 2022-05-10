@@ -1,5 +1,7 @@
 import { writable } from 'svelte/store';
 
+// The main store that keeps track of all Bookit's state
+
 const newBookit = () => {
 	const { subscribe, update, set } = writable<{
 		canvasBg: string;

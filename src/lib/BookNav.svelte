@@ -1,7 +1,11 @@
 <script lang="ts">
-	import BookIcon from './BookIcon.svelte';
-	import { bookit_state } from './state';
+	// This is the side nav aka BookNav
+	// All stories will show up here automatically via the tree
 
+	import { bookit_state } from './state';
+	import BookIcon from './BookIcon.svelte';
+
+	// props
 	export let tree: {
 		[key: string]: {
 			title: string;
@@ -10,6 +14,7 @@
 		}[];
 	};
 
+	// local
 	let filter = '';
 </script>
 

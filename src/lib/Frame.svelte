@@ -8,7 +8,7 @@
 	export let padding = 20;
 	export let boarder = true;
 	export let checker = false;
-	export let title: string = 'Frame';
+	export let title: string;
 	export let controls;
 
 	// Local controls are what passes the props from the "Controls" section to the slot props
@@ -27,8 +27,6 @@
 	$: if (title === $bookit_state?.selectedStory?.title) {
 		localControls = $bookit_state?.selectedStory?.controls;
 	}
-
-	let iframeRef: HTMLIFrameElement;
 
 	let sandbox;
 	$: if (typeof window !== 'undefined') {
@@ -75,11 +73,7 @@
 			</svg>
 		{/if}
 		<div class="bookit_content" style:border={$bookit_state.frameDash ? 'dashed 1px #999' : 'none'}>
-			{#if iframeRef}
-				<iframe bind:this={iframeRef} />
-			{/if}
-
-			<Portal target={iframeRef}>
+			<Portal>
 				<slot props={localControls} />
 			</Portal>
 		</div>

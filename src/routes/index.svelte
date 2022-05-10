@@ -14,6 +14,7 @@
 		<li>Integrated into your app</li>
 		<li>Themeable</li>
 		<li>Simple</li>
+		<li>iFrame Isolation</li>
 	</ul>
 </div>
 
