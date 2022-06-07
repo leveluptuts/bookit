@@ -6,7 +6,7 @@
 </script>
 
 <div class="book-wrapper">
-	<Splitpanes>
+	<Splitpanes theme="level-up-split">
 		<Pane size="15">
 			<BookNav {tree} />
 		</Pane>
@@ -25,13 +25,14 @@
 		height: 100vh;
 	}
 
-	.splitpanes__splitter {
+	:global(.splitpanes.level-up-split) :global(.splitpanes__splitter) {
 		transition: 0.3s ease width;
 		background-color: var(--bookit_line_color);
 		width: 2px;
+		cursor: col-resize;
 	}
 
-	.splitpanes__splitter:hover {
+	:global(.splitpanes.level-up-split) :global(.splitpanes__splitter:hover) {
 		background-color: #f0c05e;
 		position: relative;
 		width: 6px;

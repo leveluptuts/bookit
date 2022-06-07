@@ -31,7 +31,7 @@ hr {
 }
 
 hr {
-	border-bottom: solid 1px var(--lineColor);
+	border-bottom: solid 1px var(--line_color);
 	border-top: none;
 	margin: 2rem 0;
 }
