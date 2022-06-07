@@ -15,7 +15,7 @@ A new Story environment with a different approach. Finely tuned to work directly
 ### Why it's dope
 
 - Build for Svelte Kit
-- No webkit, or extra build process
+- No webpack, or extra build process
 - Integrated into your app
 - Themeable
 - Simple
