@@ -1,18 +1,8 @@
 <script lang="ts">
 	// This is the side nav aka BookNav
 	// All stories will show up here automatically via the tree
-
 	import { bookit_state } from './state';
 	import BookIcon from './BookIcon.svelte';
-
-	// props
-	export let tree: {
-		[key: string]: {
-			title: string;
-			parent: string;
-			icon: string;
-		}[];
-	};
 
 	// local
 	let filter = '';
@@ -22,7 +12,7 @@
 	<label><span>Filter:</span><input type="text" bind:value={filter} /></label>
 	<nav>
 		<ul>
-			{#each Object.entries(tree) as [parent, stories] (parent)}
+			{#each Object.entries($bookit_state.tree) as [parent, stories] (parent)}
 				<li>
 					<h4>{parent}</h4>
 					<ul class="bookit_link_list">

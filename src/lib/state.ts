@@ -11,6 +11,14 @@ const newBookit = () => {
 		framePadding: number;
 		frameSize: [number, number | string];
 		selectedStory: any;
+		loaded: {};
+		tree: {
+			[key: string]: {
+				title: string;
+				parent: string;
+				icon: string;
+			}[];
+		};
 	}>({
 		canvasBg: '#111',
 		checker: false,
@@ -18,14 +26,42 @@ const newBookit = () => {
 		frameDash: true,
 		framePadding: 20,
 		frameSize: [700, 'auto'],
-		selectedStory: null
+		selectedStory: null,
+		tree: {},
+		loaded: {}
 	});
 
 	return {
 		subscribe,
 		update,
-		set
+		set,
+		init: async (data) => {
+			const tree = await data();
+			set({ tree });
+		}
 	};
 };
 
 export const bookit_state = newBookit();
+
+// State //
+
+// Tree[]
+// - id aka importpath x
+// - Name x
+// - Parent x
+// Canvas
+// Bg
+// Checker
+// Selected Story ID
+// Loaded Stories[]
+// - Title
+// - Parent
+// - Id
+// - Raw Code
+// - Code without Bookit Imports
+// - FrameBg
+// - FrameDash
+// - FramePadding
+// - FrameSize
+// - Controls?

@@ -3,14 +3,9 @@
 // For internal pages, it adds the title and parent from the url params
 
 import { createTree } from './create_tree';
+import { bookit_state } from './state';
 
 export async function layoutLoad({ params }: { params?: { title: string; parent: string } }) {
-	const tree = createTree();
-	return {
-		stuff: {
-			title: params?.title,
-			parent: params?.parent,
-			tree
-		}
-	};
+	bookit_state.init(async () => createTree());
+	return {};
 }

@@ -1,11 +1,16 @@
-import { getTree } from './get_tree';
+import { get } from 'svelte/store';
+import { bookit_state } from './state';
 
 // Takes parent and title and plucks the correct
 // story from the tree
-export function getStory({ parent, title }) {
-	const tree = getTree();
+export async function getStory({ parent, title }) {
+	const tree = get(bookit_state).tree;
 	const group = tree?.[parent];
-	return group.find((item) => item.title === title);
+	const found_story = group.find((item) => item.title === title);
+	const raw = await import(found_story.id + '?raw');
+	const raw_default = raw.default;
+	found_story.raw = raw_default;
+	return found_story;
 }
 
 export function load({ params }) {

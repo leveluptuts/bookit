@@ -16,7 +16,7 @@
 		<input type="text" bind:value={$bookit_state.canvasBg} />
 	</BookDropMenu>
 
-	<BookDropMenu
+	<!-- <BookDropMenu
 		buttonText="Frame Bg"
 		icon="frame"
 		onUpdate={(color) => ($bookit_state.frameBg = color)}
@@ -34,8 +34,8 @@
 			Dashed Border
 		</label>
 		<input type="text" bind:value={$bookit_state.frameBg} />
-	</BookDropMenu>
-	<BookDropMenu
+	</BookDropMenu> -->
+	<!-- <BookDropMenu
 		icon="size"
 		buttonText="Size Presets"
 		onUpdate={(size) => ($bookit_state.frameSize = size)}
@@ -50,7 +50,7 @@
 			<input type="number" bind:value={$bookit_state.frameSize[0]} /> x
 			<input type="number" bind:value={$bookit_state.frameSize[1]} />
 		</div>
-	</BookDropMenu>
+	</BookDropMenu> -->
 </div>
 
 <style>

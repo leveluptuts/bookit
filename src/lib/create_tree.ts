@@ -1,8 +1,5 @@
 export function createTree() {
 	const modules = import.meta.globEager('/**/*.story.svelte');
-	// const test = import.meta.globEager('$lib/**/*.story.svelte', {
-	// 	assert: { type: 'raw' }
-	// });
 
 	const groupBy = (array, key) => {
 		return array.reduce((result, obj) => {
@@ -13,7 +10,8 @@ export function createTree() {
 
 	const tree = Object.keys(modules).map((key) => {
 		return {
-			controls: modules[key]?.controls,
+			// controls: modules[key]?.controls,
+			id: key,
 			title: modules[key].title,
 			parent: modules[key].parent,
 			component: modules[key].default

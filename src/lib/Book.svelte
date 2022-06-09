@@ -1,14 +1,12 @@
 <script lang="ts">
 	import { Pane, Splitpanes } from 'svelte-splitpanes';
 	import BookNav from './BookNav.svelte';
-	import { getTree } from './get_tree';
-	$: tree = getTree();
 </script>
 
 <div class="book-wrapper">
 	<Splitpanes theme="level-up-split">
 		<Pane size="15">
-			<BookNav {tree} />
+			<BookNav />
 		</Pane>
 		<Pane>
 			<slot />
