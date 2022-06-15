@@ -1,6 +1,4 @@
 <script lang="ts">
-	// import Repl from './repl/index.svelte';
-	// import { onMount } from 'svelte';
 	import Portal from './utils/Portal.svelte';
 	import { bookit_state } from './state';
 	export let responsive = true;
@@ -12,21 +10,6 @@
 	export let checker = false;
 	export let title: string;
 	export let controls;
-
-	$: console.log('bookit state', $bookit_state);
-
-	// let repl;
-	// onMount(() => {
-	// 	repl.set({
-	// 		components: [
-	// 			{
-	// 				name: 'hi',
-	// 				type: 'svelte',
-	// 				source: $bookit_state.loaded.raw
-	// 			}
-	// 		]
-	// 	});
-	// });
 
 	// Local controls are what passes the props from the "Controls" section to the slot props
 	// This makes props available to the story component
@@ -89,7 +72,6 @@
 			</Portal>
 		</div>
 	</div>
-	<!-- <Repl bind:this={repl} showAst /> -->
 </div>
 
 <style>

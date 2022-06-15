@@ -7,7 +7,17 @@
 </script>
 
 <Window>
-	<Frame size={[200, 'auto']} bg="#333" checker={true} padding="40" title="With Frame Options">
-		<TestComponent title="Hello World" />
+	<Frame
+		size={[200, 'auto']}
+		bg="#333"
+		checker={true}
+		padding="40"
+		title="With Frame Options"
+		let:props
+		controls={{
+			title: 'Hello'
+		}}
+	>
+		<TestComponent title={props.title} />
 	</Frame>
 </Window>
