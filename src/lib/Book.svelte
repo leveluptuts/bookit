@@ -19,7 +19,7 @@
 		--bookit_header_height: 40px;
 		--bookit_line_color: rgb(255 255 255 / 0.1);
 		--bookit_line: solid 0.5px var(--bookit_line_color);
-		background: var(--bookit_bg, #222);
+		background: var(--bookit_bg, #111);
 		height: 100vh;
 	}
 

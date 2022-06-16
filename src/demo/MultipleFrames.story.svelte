@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
-	import { Window, Frame } from '$lib';
+	import { Canvas, Frame } from '$lib';
 	import TestComponent from './TestComponent.svelte';
 
 	export const title = 'Multi Frames';
 	export const parent = 'Parent';
 </script>
 
-<Window>
+<Canvas>
 	<Frame
 		title="First Frame"
 		let:props
@@ -25,4 +25,4 @@
 	>
 		<TestComponent title={props.title} />
 	</Frame>
-</Window>
+</Canvas>

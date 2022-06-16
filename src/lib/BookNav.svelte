@@ -9,7 +9,9 @@
 </script>
 
 <div class="bookit_navbar">
-	<label><span>Filter:</span><input type="text" bind:value={filter} /></label>
+	<label class="filter"
+		><span>🔍</span><input placeholder="Filter" type="text" bind:value={filter} /></label
+	>
 	<nav>
 		<ul>
 			{#each Object.entries($bookit_state.tree) as [parent, stories] (parent)}
@@ -23,7 +25,9 @@
 									class="bookit_link"
 									href={`/book/${story.parent}-${story.title}`}
 								>
-									<BookIcon name="component" />
+									<span class="icon">
+										<BookIcon name="component" />
+									</span>
 									{story.title}
 								</a>
 							</li>
@@ -35,7 +39,7 @@
 	</nav>
 </div>
 
-<style>
+<style lang="scss">
 	h4 {
 		height: var(--bookit_header_height);
 		font-family: monospace;
@@ -58,6 +62,11 @@
 		color: var(--bookit_color, #fff);
 	}
 
+	.icon {
+		position: relative;
+		top: 2px;
+	}
+
 	.bookit_link_list {
 		padding: 10px;
 	}
@@ -72,7 +81,7 @@
 		gap: 5px;
 		align-items: top;
 		line-height: 1.5;
-		font-size: 12px;
+		font-size: 14px;
 	}
 
 	label {
@@ -80,11 +89,13 @@
 		display: block;
 	}
 
-	label span {
-		color: white;
-		font-size: 12px;
-		margin-bottom: 5px;
-		display: block;
+	.filter {
+		position: relative;
+		span {
+			position: absolute;
+			left: 4px;
+			top: 4px;
+		}
 	}
 
 	input {
@@ -93,5 +104,6 @@
 		border: solid 1px white;
 		color: white;
 		width: 100%;
+		padding: 5px 5px 5px 30px;
 	}
 </style>

@@ -64,6 +64,9 @@
 		overflow-y: scroll;
 		display: flex;
 		gap: 10px;
-		flex-wrap: wrap;
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		align-items: flex-start;
+		align-content: flex-start;
 	}
 </style>

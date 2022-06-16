@@ -1,12 +1,12 @@
 <script context="module" lang="ts">
-	import { Window, Frame } from '$lib';
+	import { Canvas, Frame } from '$lib';
 	import TestComponent from './TestComponent.svelte';
 
 	export const title = 'Frame Options';
 	export const parent = 'A Parent';
 </script>
 
-<Window>
+<Canvas>
 	<Frame
 		size={[200, 'auto']}
 		bg="#333"
@@ -20,4 +20,4 @@
 	>
 		<TestComponent title={props.title} />
 	</Frame>
-</Window>
+</Canvas>
