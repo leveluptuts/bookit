@@ -9,9 +9,9 @@ export async function getStory({ parent, title }) {
 
 	if (group) {
 		const found_story = group.find((item) => item.title === title);
-		const raw = await import(found_story.id + '?raw');
-		const raw_default = raw.default;
-		found_story.raw = raw_default;
+		// const raw = await import(found_story.id + '?raw');
+		// const raw_default = raw.default;
+		// found_story.raw = raw_default;
 		return found_story;
 	} else {
 		return null;
@@ -19,7 +19,6 @@ export async function getStory({ parent, title }) {
 }
 
 export function load({ params }) {
-	console.log('params', params);
 	return {
 		props: {
 			params
