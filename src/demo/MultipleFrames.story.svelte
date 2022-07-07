@@ -17,6 +17,7 @@
 		<TestComponent title={props.title} />
 	</Frame>
 	<Frame
+		bg="blue"
 		title="Second Frame"
 		let:props
 		controls={{

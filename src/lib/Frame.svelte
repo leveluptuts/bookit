@@ -11,6 +11,9 @@
 	export let title: string;
 	export let controls;
 
+	$: console.log($bookit_state.loaded.id);
+	$bookit_state.loaded.frames[title] = { title, padding, boarder, bg };
+
 	// Local controls are what passes the props from the "Controls" section to the slot props
 	// This makes props available to the story component
 	$: localControls = controls;
@@ -48,7 +51,7 @@
 				controls
 			})}
 		style:padding={$bookit_state.framePadding + 'px'}
-		style={`--bookit_frame_bg: ${$bookit_state.frameBg}`}
+		style={`--bookit_frame_bg: ${$bookit_state.loaded.frames[title].bg}`}
 		class="bookit_frame"
 		style:height={$bookit_state.frameSize[1] +
 			(typeof $bookit_state.frameSize[1] === 'number' ? 'px' : '')}
