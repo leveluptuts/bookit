@@ -43,8 +43,8 @@
 		"package": "svelte-kit package",
 		"package:watch": "watch 'pnpm package' src",
 		"prepare": "svelte-kit sync",
-		"preview": "svelte-kit preview"
+		"preview": "vite preview"
 	},
 	"type": "module",
-	"version": "0.0.3"
+	"version": "0.0.5"
 }

@@ -40,6 +40,8 @@
 		display: flex;
 		gap: 5px;
 		align-items: center;
+		border-radius: 0.25rem;
+		width: 160px;
 	}
 
 	button:hover {

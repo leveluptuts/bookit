@@ -25,31 +25,12 @@
 			{ label: 'White', value: '#fff' }
 		]}
 	>
-		<label>
-			<input type="checkbox" bind:checked={$bookit_state.checker} />
-			Checker
-		</label>
+
 		<label>
 			<input type="checkbox" bind:checked={$bookit_state.frameDash} />
 			Dashed Border
 		</label>
 		<input type="text" bind:value={$bookit_state.frameBg} />
-	</BookDropMenu> -->
-	<!-- <BookDropMenu
-		icon="size"
-		buttonText="Size Presets"
-		onUpdate={(size) => ($bookit_state.frameSize = size)}
-		options={[
-			{ label: 'Small 320px', value: [320, 'auto'] },
-			{ label: 'iPhone 13 Pro Max', value: [428, 926] },
-			{ label: 'Med 640px', value: [640, 'auto'] },
-			{ label: 'Large 960px', value: [960, 'auto'] }
-		]}
-	>
-		<div class="joint-input">
-			<input type="number" bind:value={$bookit_state.frameSize[0]} /> x
-			<input type="number" bind:value={$bookit_state.frameSize[1]} />
-		</div>
 	</BookDropMenu> -->
 </div>
 
@@ -65,14 +46,6 @@
 		color: white;
 		font-size: 14px;
 		font-family: monospace;
-	}
-
-	.joint-input {
-		display: flex;
-		gap: 5px;
-		align-items: center;
-		color: white;
-		justify-content: space-between;
 	}
 
 	.wrapper {

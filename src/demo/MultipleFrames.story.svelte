@@ -17,6 +17,8 @@
 		<TestComponent title={props.title} />
 	</Frame>
 	<Frame
+		size={[300, 300]}
+		checker={true}
 		bg="blue"
 		title="Second Frame"
 		let:props

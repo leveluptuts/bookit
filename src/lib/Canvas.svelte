@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { Pane, Splitpanes } from 'svelte-splitpanes';
 	import { bookit_state } from './state';
+	import FrameControls from './FrameControls.svelte';
 	import Controls from './Controls.svelte';
 	import BookHeader from './BookHeader.svelte';
 
@@ -26,6 +27,7 @@
 			</Pane>
 			{#if $bookit_state?.selectedStory?.controls}
 				<Pane size="20">
+					<FrameControls />
 					<Controls />
 				</Pane>
 			{/if}

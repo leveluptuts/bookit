@@ -3,29 +3,25 @@
 	import { bookit_state } from './state';
 	export let responsive = true;
 	export let size: [number, string | number] = [700, 'auto'];
-	export let canvas_bg = '#111';
 	export let bg = '#ffffff';
 	export let padding = 20;
-	export let boarder = true;
+	export let border = true;
 	export let checker = false;
 	export let title: string;
 	export let controls;
 
-	$: console.log($bookit_state.loaded.id);
-	$bookit_state.loaded.frames[title] = { title, padding, boarder, bg };
+	$bookit_state.loaded.frames[title] = { title, padding, border, bg, size, checker };
 
 	// Local controls are what passes the props from the "Controls" section to the slot props
 	// This makes props available to the story component
 	$: localControls = controls;
-
-	$: {
-		$bookit_state.frameSize = size;
-		$bookit_state.framePadding = padding;
-		$bookit_state.canvasBg = canvas_bg;
-		$bookit_state.frameBg = bg;
-		$bookit_state.checker = checker;
-		$bookit_state.frameDash = boarder;
-	}
+	$: local_bg = $bookit_state.loaded.frames[title].bg;
+	$: local_size = $bookit_state.loaded.frames[title].size;
+	$: height = local_size[1] + (typeof local_size[1] === 'number' ? 'px' : '');
+	$: width = local_size[0] + (typeof local_size[0] === 'number' ? 'px' : '');
+	$: local_border = $bookit_state.loaded.frames[title].border;
+	$: local_checker = $bookit_state.loaded.frames[title].checker;
+	$: local_padding = $bookit_state.loaded.frames[title].padding;
 
 	$: if (title === $bookit_state?.selectedStory?.title) {
 		localControls = $bookit_state?.selectedStory?.controls;
@@ -34,8 +30,7 @@
 
 <div
 	class="bookit_frame_wrapper"
-	style:width={$bookit_state.frameSize[0] +
-		(typeof $bookit_state.frameSize[0] === 'number' ? 'px' : '')}
+	style:width
 	class:selected={$bookit_state?.selectedStory?.title === title}
 	on:click={() =>
 		($bookit_state.selectedStory = {
@@ -44,23 +39,22 @@
 		})}
 >
 	<h4>{title}</h4>
+
 	<div
 		on:click={() =>
 			($bookit_state.selectedStory = {
 				title,
 				controls
 			})}
-		style:padding={$bookit_state.framePadding + 'px'}
-		style={`--bookit_frame_bg: ${$bookit_state.loaded.frames[title].bg}`}
+		style:padding={local_padding + 'px'}
+		style={`--bookit_frame_bg: ${local_bg}`}
 		class="bookit_frame"
-		style:height={$bookit_state.frameSize[1] +
-			(typeof $bookit_state.frameSize[1] === 'number' ? 'px' : '')}
-		style:width={$bookit_state.frameSize[0] +
-			(typeof $bookit_state.frameSize[0] === 'number' ? 'px' : '')}
+		style:height
+		style:width
 		style:overflow={responsive ? 'auto' : 'initial'}
 		style:resize={responsive ? 'horizontal' : 'initial'}
 	>
-		{#if $bookit_state.checker}
+		{#if local_checker}
 			<svg class="checker" fill="none">
 				<pattern id="checkerboard" width="64" height="64" patternUnits="userSpaceOnUse">
 					<rect x="0" y="0" width="32" height="32" fill="rgb(0 0 0 / 0.3)" />
@@ -69,7 +63,7 @@
 				<rect x="0" y="0" width="100%" height="100%" fill="url(#checkerboard)" />
 			</svg>
 		{/if}
-		<div class="bookit_content" style:border={$bookit_state.frameDash ? 'dashed 1px #999' : 'none'}>
+		<div class="bookit_content" style:border={local_border ? 'dashed 1px #999' : 'none'}>
 			<Portal>
 				<slot props={localControls} />
 			</Portal>
