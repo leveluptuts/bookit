@@ -8,7 +8,7 @@
 	export let border = true;
 	export let checker = false;
 	export let title: string;
-	export let controls;
+	export let controls: null | any = null;
 
 	$bookit_state.loaded.frames[title] = { title, padding, border, bg, size, checker };
 
