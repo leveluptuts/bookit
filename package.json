@@ -29,6 +29,9 @@
 		"vite": "3.0.0",
 		"watch": "^1.0.2"
 	},
+	"exports": {
+		".": "./index.js"
+	},
 	"name": "@leveluptuts/bookit",
 	"optionalDependencies": {
 		"@leveluptuts/svelte-toy": "^2.0.0"
