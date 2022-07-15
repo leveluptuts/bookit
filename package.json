@@ -36,6 +36,7 @@
 	"optionalDependencies": {
 		"@leveluptuts/svelte-toy": "^2.0.0"
 	},
+	"repository": "@leveluptuts/bookit",
 	"scripts": {
 		"build": "vite build",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
