@@ -2,7 +2,7 @@
 	import Portal from './utils/Portal.svelte';
 	import { bookit_state } from './state';
 	export let responsive = true;
-	export let size: [number, string | number] = [700, 'auto'];
+	export let size: [string | number, string | number] = [700, 'auto'];
 	export let bg = '#ffffff';
 	export let padding = 20;
 	export let border = true;
