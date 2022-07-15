@@ -1,0 +1,60 @@
+{
+  "author": "Scott Tolinski",
+  "bugs": {
+    "url": "https://github.com/leveluptuts/bookit/issues"
+  },
+  "dependencies": {
+    "just-safe-set": "^4.0.2",
+    "svelte-splitpanes": "^0.6.7"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^1.0.0-next.36",
+    "@sveltejs/kit": "1.0.0-next.377",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.7.0",
+    "sass": "^1.52.3",
+    "svelte": "3.49.0",
+    "svelte-check": "^2.7.2",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "4.7.4",
+    "vite": "3.0.0"
+  },
+  "homepage": "https://bookit.leveluptutorials.com",
+  "license": "ISC",
+  "name": "@leveluptuts/bookit",
+  "optionalDependencies": {
+    "@leveluptuts/svelte-toy": "^2.0.0"
+  },
+  "repository": "@leveluptuts/bookit",
+  "type": "module",
+  "version": "0.0.7",
+  "exports": {
+    "./package.json": "./package.json",
+    "./Book.svelte": "./Book.svelte",
+    "./BookDropMenu.svelte": "./BookDropMenu.svelte",
+    "./BookHeader.svelte": "./BookHeader.svelte",
+    "./BookIcon.svelte": "./BookIcon.svelte",
+    "./BookInput.svelte": "./BookInput.svelte",
+    "./BookNav.svelte": "./BookNav.svelte",
+    "./Bookit.svelte": "./Bookit.svelte",
+    "./Canvas.svelte": "./Canvas.svelte",
+    "./Controls.svelte": "./Controls.svelte",
+    "./ControlsRow.svelte": "./ControlsRow.svelte",
+    "./Docs.svelte": "./Docs.svelte",
+    "./Frame.svelte": "./Frame.svelte",
+    "./FrameControls.svelte": "./FrameControls.svelte",
+    "./create_tree": "./create_tree.js",
+    "./get_story": "./get_story.js",
+    ".": "./index.js",
+    "./layout_load": "./layout_load.js",
+    "./state": "./state.js",
+    "./utils/Portal.svelte": "./utils/Portal.svelte"
+  },
+  "svelte": "./index.js"
+}
