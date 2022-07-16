@@ -6,8 +6,8 @@
 
 <h4>🛠️ Controls</h4>
 
-{#if $bookit_state?.selectedStory?.controls}
-	{#each Object.entries($bookit_state?.selectedStory?.controls) as [key, value]}
+{#if $bookit_state?.selected_frame?.controls}
+	{#each Object.entries($bookit_state?.selected_frame?.controls) as [key, value]}
 		<ControlsRow {key} {value} path={key} />
 	{/each}
 {/if}

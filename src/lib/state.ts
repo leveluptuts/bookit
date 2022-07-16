@@ -5,7 +5,8 @@ import { writable } from 'svelte/store';
 const newBookit = () => {
 	const { subscribe, update, set } = writable<{
 		canvasBg: string;
-		selectedStory: any;
+		selected_frame: any;
+		code: 'VISIBLE' | 'HIDDEN';
 		loaded: {};
 		tree: {
 			[key: string]: {
@@ -15,8 +16,9 @@ const newBookit = () => {
 			}[];
 		};
 	}>({
+		code: 'VISIBLE',
 		canvasBg: '#111',
-		selectedStory: null,
+		selected_frame: null,
 		tree: {},
 		loaded: {}
 	});
@@ -27,7 +29,7 @@ const newBookit = () => {
 		set,
 		init: async (data) => {
 			const tree = await data();
-			set({ tree });
+			update((prev) => ({ ...prev, tree }));
 		}
 	};
 };

@@ -21,7 +21,7 @@
 						{#each stories.filter((story) => story.title.includes(filter)) as story}
 							<li>
 								<a
-									on:click={() => ($bookit_state.selectedStory = null)}
+									on:click={() => ($bookit_state.selected_frame = null)}
 									class="bookit_link"
 									href={`/book/${story.parent}-${story.title}`}
 								>

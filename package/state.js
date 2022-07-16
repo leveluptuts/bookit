@@ -2,8 +2,9 @@ import { writable } from 'svelte/store';
 // The main store that keeps track of all Bookit's state
 const newBookit = () => {
     const { subscribe, update, set } = writable({
+        code: 'VISIBLE',
         canvasBg: '#111',
-        selectedStory: null,
+        selected_frame: null,
         tree: {},
         loaded: {}
     });
@@ -13,7 +14,7 @@ const newBookit = () => {
         set,
         init: async (data) => {
             const tree = await data();
-            set({ tree });
+            update((prev) => ({ ...prev, tree }));
         }
     };
 };

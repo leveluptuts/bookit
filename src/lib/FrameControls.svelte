@@ -2,50 +2,52 @@
 	import BookDropMenu from './BookDropMenu.svelte';
 	import { bookit_state } from './state';
 
-	export let controls = {};
-	$: selected_title = $bookit_state?.selectedStory?.title;
+	let selected_title = $bookit_state.selected_frame?.title;
+	$: selected_title = $bookit_state?.selected_frame?.title;
 </script>
 
-<div class="wrapper">
-	<h4>🖼️ Controls</h4>
-	<div class="inputs">
-		<label>
-			Padding
-			<input type="number" bind:value={$bookit_state.loaded.frames[selected_title].padding} />
-		</label>
-		<label>
-			Checker
-			<input type="checkbox" bind:checked={$bookit_state.loaded.frames[selected_title].checker} />
-		</label>
-		<label>
-			Border
-			<input type="checkbox" bind:checked={$bookit_state.loaded.frames[selected_title].border} />
-		</label>
-		<label>
-			Background
-			<input type="text" bind:value={$bookit_state.loaded.frames[selected_title].bg} />
-		</label>
+{#if $bookit_state?.loaded.frames?.[selected_title]}
+	<div class="wrapper">
+		<h4>🖼️ Controls</h4>
+		<div class="inputs">
+			<label>
+				Padding
+				<input type="number" bind:value={$bookit_state.loaded.frames[selected_title].padding} />
+			</label>
+			<label>
+				Checker
+				<input type="checkbox" bind:checked={$bookit_state.loaded.frames[selected_title].checker} />
+			</label>
+			<label>
+				Border
+				<input type="checkbox" bind:checked={$bookit_state.loaded.frames[selected_title].border} />
+			</label>
+			<label>
+				Background
+				<input type="text" bind:value={$bookit_state.loaded.frames[selected_title].bg} />
+			</label>
 
-		<label>Size:</label>
-		<BookDropMenu
-			icon="size"
-			buttonText="Size Presets"
-			onUpdate={(size) => ($bookit_state.loaded.frames[selected_title].size = size)}
-			options={[
-				{ label: 'Small 320px', value: [320, 'auto'] },
-				{ label: 'iPhone 13 Pro Max', value: [428, 926] },
-				{ label: 'Med 640px', value: [640, 'auto'] },
-				{ label: 'Large 960px', value: [960, 'auto'] }
-			]}
-		/>
-		<div style:padding="6px" />
+			<label>Size:</label>
+			<BookDropMenu
+				icon="size"
+				buttonText="Size Presets"
+				onUpdate={(size) => ($bookit_state.loaded.frames[selected_title].size = size)}
+				options={[
+					{ label: 'Small 320px', value: [320, 'auto'] },
+					{ label: 'iPhone 13 Pro Max', value: [428, 926] },
+					{ label: 'Med 640px', value: [640, 'auto'] },
+					{ label: 'Large 960px', value: [960, 'auto'] }
+				]}
+			/>
+			<div style:padding="6px" />
 
-		<div class="joint-input">
-			<input type="number" bind:value={$bookit_state.loaded.frames[selected_title].size[0]} /> x
-			<input type="number" bind:value={$bookit_state.loaded.frames[selected_title].size[1]} />
+			<div class="joint-input">
+				<input type="number" bind:value={$bookit_state.loaded.frames[selected_title].size[0]} /> x
+				<input type="number" bind:value={$bookit_state.loaded.frames[selected_title].size[1]} />
+			</div>
 		</div>
 	</div>
-</div>
+{/if}
 
 <style>
 	h4 {

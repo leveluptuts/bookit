@@ -5,10 +5,10 @@
 	import FrameControls from './FrameControls.svelte';
 	import Controls from './Controls.svelte';
 	import BookHeader from './BookHeader.svelte';
+	import Code from './Code.svelte';
 
 	// props
 	export let canvas_bg = '#111';
-
 	onMount(() => {
 		// If you pass canvas_bg as a prop, it will update the
 		// global state store
@@ -21,11 +21,20 @@
 	<div class="bookit_canvas" style={`--bookit_canvas_bg: ${$bookit_state.canvasBg}`}>
 		<Splitpanes theme="level-up-split">
 			<Pane>
-				<div class="bookit_viewport">
-					<slot />
-				</div>
+				<Splitpanes horizontal={true} theme="level-up-split">
+					<Pane>
+						<div class="bookit_viewport">
+							<slot />
+						</div>
+					</Pane>
+					{#if $bookit_state.code === 'VISIBLE'}
+						<Pane size="20">
+							<Code />
+						</Pane>
+					{/if}
+				</Splitpanes>
 			</Pane>
-			{#if $bookit_state?.selectedStory?.controls}
+			{#if $bookit_state?.selected_frame?.title}
 				<Pane size="20">
 					<FrameControls />
 					<Controls />

@@ -1,7 +1,8 @@
 export declare const bookit_state: {
     subscribe: (this: void, run: import("svelte/store").Subscriber<{
         canvasBg: string;
-        selectedStory: any;
+        selected_frame: any;
+        code: 'VISIBLE' | 'HIDDEN';
         loaded: {};
         tree: {
             [key: string]: {
@@ -12,7 +13,8 @@ export declare const bookit_state: {
         };
     }>, invalidate?: ((value?: {
         canvasBg: string;
-        selectedStory: any;
+        selected_frame: any;
+        code: 'VISIBLE' | 'HIDDEN';
         loaded: {};
         tree: {
             [key: string]: {
@@ -24,7 +26,8 @@ export declare const bookit_state: {
     } | undefined) => void) | undefined) => import("svelte/store").Unsubscriber;
     update: (this: void, updater: import("svelte/store").Updater<{
         canvasBg: string;
-        selectedStory: any;
+        selected_frame: any;
+        code: 'VISIBLE' | 'HIDDEN';
         loaded: {};
         tree: {
             [key: string]: {
@@ -36,7 +39,8 @@ export declare const bookit_state: {
     }>) => void;
     set: (this: void, value: {
         canvasBg: string;
-        selectedStory: any;
+        selected_frame: any;
+        code: 'VISIBLE' | 'HIDDEN';
         loaded: {};
         tree: {
             [key: string]: {

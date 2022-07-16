@@ -10,7 +10,7 @@
 
 		bookit_state.update((u) => {
 			let newData = { ...u };
-			set(newData, 'selectedStory.controls.' + path, value);
+			set(newData, 'selected_frame.controls.' + path, value);
 			return newData;
 		});
 	}

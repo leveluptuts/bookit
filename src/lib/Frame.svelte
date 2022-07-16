@@ -23,29 +23,27 @@
 	$: local_checker = $bookit_state.loaded.frames[title].checker;
 	$: local_padding = $bookit_state.loaded.frames[title].padding;
 
-	$: if (title === $bookit_state?.selectedStory?.title) {
-		localControls = $bookit_state?.selectedStory?.controls;
+	$: if (title === $bookit_state?.selected_frame?.title) {
+		localControls = $bookit_state?.selected_frame?.controls;
 	}
 </script>
 
 <div
 	class="bookit_frame_wrapper"
 	style:width
-	class:selected={$bookit_state?.selectedStory?.title === title}
-	on:click={() =>
-		($bookit_state.selectedStory = {
-			title,
-			controls
-		})}
+	class:selected={$bookit_state?.selected_frame?.title === title}
 >
-	<h4>{title}</h4>
-
-	<div
+	<h4
 		on:click={() =>
-			($bookit_state.selectedStory = {
+			($bookit_state.selected_frame = {
 				title,
 				controls
 			})}
+	>
+		{title}
+	</h4>
+
+	<div
 		style:padding={local_padding + 'px'}
 		style={`--bookit_frame_bg: ${local_bg}`}
 		class="bookit_frame"

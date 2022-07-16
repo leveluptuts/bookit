@@ -15,23 +15,8 @@
 	>
 		<input type="text" bind:value={$bookit_state.canvasBg} />
 	</BookDropMenu>
-
-	<!-- <BookDropMenu
-		buttonText="Frame Bg"
-		icon="frame"
-		onUpdate={(color) => ($bookit_state.frameBg = color)}
-		options={[
-			{ label: 'Black', value: '#000' },
-			{ label: 'White', value: '#fff' }
-		]}
-	>
-
-		<label>
-			<input type="checkbox" bind:checked={$bookit_state.frameDash} />
-			Dashed Border
-		</label>
-		<input type="text" bind:value={$bookit_state.frameBg} />
-	</BookDropMenu> -->
+	<button on:click={() => ($bookit_state.code = 'VISIBLE')}> Show Code </button>
+	<button on:click={() => ($bookit_state.code = 'HIDDEN')}> Hide Code </button>
 </div>
 
 <style>

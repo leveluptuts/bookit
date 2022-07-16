@@ -20,29 +20,27 @@ $: width = local_size[0] + (typeof local_size[0] === 'number' ? 'px' : '');
 $: local_border = $bookit_state.loaded.frames[title].border;
 $: local_checker = $bookit_state.loaded.frames[title].checker;
 $: local_padding = $bookit_state.loaded.frames[title].padding;
-$: if (title === ((_a = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selectedStory) === null || _a === void 0 ? void 0 : _a.title)) {
-    localControls = (_b = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selectedStory) === null || _b === void 0 ? void 0 : _b.controls;
+$: if (title === ((_a = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame) === null || _a === void 0 ? void 0 : _a.title)) {
+    localControls = (_b = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame) === null || _b === void 0 ? void 0 : _b.controls;
 }
 </script>
 
 <div
 	class="bookit_frame_wrapper"
 	style:width
-	class:selected={$bookit_state?.selectedStory?.title === title}
-	on:click={() =>
-		($bookit_state.selectedStory = {
-			title,
-			controls
-		})}
+	class:selected={$bookit_state?.selected_frame?.title === title}
 >
-	<h4>{title}</h4>
-
-	<div
+	<h4
 		on:click={() =>
-			($bookit_state.selectedStory = {
+			($bookit_state.selected_frame = {
 				title,
 				controls
 			})}
+	>
+		{title}
+	</h4>
+
+	<div
 		style:padding={local_padding + 'px'}
 		style={`--bookit_frame_bg: ${local_bg}`}
 		class="bookit_frame"
