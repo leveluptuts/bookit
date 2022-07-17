@@ -1,13 +1,14 @@
 <script>import { Pane, Splitpanes } from 'svelte-splitpanes';
 import BookNav from './BookNav.svelte';
+import { bookit_state } from './state';
 </script>
 
 <div class="book-wrapper">
 	<Splitpanes theme="level-up-split">
-		<Pane size="15">
+		<Pane size={$bookit_state.nav === 'VISIBLE' ? '15' : '0'}>
 			<BookNav />
 		</Pane>
-		<Pane>
+		<Pane size={$bookit_state.nav === 'VISIBLE' ? '85' : '100'}>
 			<slot />
 		</Pane>
 	</Splitpanes>

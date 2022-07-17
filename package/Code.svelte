@@ -1,4 +1,6 @@
 <script>var _a, _b;
+import BookIcon from './BookIcon.svelte';
+import SideBarHeading from './elements/SideBarHeading.svelte';
 import { bookit_state } from './state';
 $: selected_title = (_a = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame) === null || _a === void 0 ? void 0 : _a.title;
 $: selected_raw = (_b = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.loaded) === null || _b === void 0 ? void 0 : _b.raw;
@@ -15,21 +17,24 @@ $: if (selected_raw) {
         last_index = selected_raw.indexOf('<Frame', end_index);
     }
 }
-// $: selected_code = code.forEach((code_string) => code_string.includes(selected_title));
-// $: console.log('selected_code', selected_code);
 </script>
 
-<div>
-	<h4>👩‍💻 Code</h4>
-</div>
-{#if selected_title}
-	<code>{code[selected_title]}</code>
-{/if}
+<SideBarHeading><BookIcon name="code" /> Code</SideBarHeading>
 
-<style>h4 {
-  color: white;
+<div class="code-section">
+	{#if selected_title}
+		<code>{code[selected_title]}</code>
+	{:else}
+		<p>Please select a frame to see the code.</p>
+	{/if}
+</div>
+
+<!-- TODO Syntax Highlighting -->
+<style>code,
+p {
+  color: var(--bookit_color, white);
 }
 
-code {
-  color: white;
+.code-section {
+  padding: 20px;
 }</style>

@@ -1,5 +1,7 @@
 <script>var _a, _b;
 import BookDropMenu from './BookDropMenu.svelte';
+import BookIcon from './BookIcon.svelte';
+import SideBarHeading from './elements/SideBarHeading.svelte';
 import { bookit_state } from './state';
 let selected_title = (_a = $bookit_state.selected_frame) === null || _a === void 0 ? void 0 : _a.title;
 $: selected_title = (_b = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame) === null || _b === void 0 ? void 0 : _b.title;
@@ -7,7 +9,7 @@ $: selected_title = (_b = $bookit_state === null || $bookit_state === void 0 ? v
 
 {#if $bookit_state?.loaded.frames?.[selected_title]}
 	<div class="wrapper">
-		<h4>🖼️ Controls</h4>
+		<SideBarHeading><BookIcon name="frame" /> Controls</SideBarHeading>
 		<div class="inputs">
 			<label>
 				Padding
@@ -49,15 +51,6 @@ $: selected_title = (_b = $bookit_state === null || $bookit_state === void 0 ? v
 {/if}
 
 <style>
-	h4 {
-		height: var(--bookit_header_height);
-		font-family: monospace;
-		margin: 0;
-		padding: 8px 20px;
-		border-bottom: var(--bookit_line);
-		color: var(--bookit_color, white);
-	}
-
 	input[type='number'],
 	input[type='text'] {
 		background-color: transparent;
@@ -76,7 +69,7 @@ $: selected_title = (_b = $bookit_state === null || $bookit_state === void 0 ? v
 	}
 
 	.wrapper {
-		padding: 20px 0;
+		padding: 0 0 20px 0;
 		border-bottom: var(--bookit_line);
 	}
 

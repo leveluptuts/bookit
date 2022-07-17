@@ -1,8 +1,6 @@
 import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
-    props: {
-        controls?: {} | undefined;
-    };
+    props: {};
     events: {
         [evt: string]: CustomEvent<any>;
     };

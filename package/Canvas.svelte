@@ -20,7 +20,7 @@ onMount(() => {
 		<Splitpanes theme="level-up-split">
 			<Pane>
 				<Splitpanes horizontal={true} theme="level-up-split">
-					<Pane>
+					<Pane size={$bookit_state.code === 'VISIBLE' ? '80' : '100'}>
 						<div class="bookit_viewport">
 							<slot />
 						</div>

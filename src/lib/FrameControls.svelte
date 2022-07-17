@@ -1,5 +1,7 @@
 <script lang="ts">
 	import BookDropMenu from './BookDropMenu.svelte';
+	import BookIcon from './BookIcon.svelte';
+	import SideBarHeading from './elements/SideBarHeading.svelte';
 	import { bookit_state } from './state';
 
 	let selected_title = $bookit_state.selected_frame?.title;
@@ -8,7 +10,7 @@
 
 {#if $bookit_state?.loaded.frames?.[selected_title]}
 	<div class="wrapper">
-		<h4>🖼️ Controls</h4>
+		<SideBarHeading><BookIcon name="frame" /> Controls</SideBarHeading>
 		<div class="inputs">
 			<label>
 				Padding
@@ -50,15 +52,6 @@
 {/if}
 
 <style>
-	h4 {
-		height: var(--bookit_header_height);
-		font-family: monospace;
-		margin: 0;
-		padding: 8px 20px;
-		border-bottom: var(--bookit_line);
-		color: var(--bookit_color, white);
-	}
-
 	input[type='number'],
 	input[type='text'] {
 		background-color: transparent;
@@ -77,7 +70,7 @@
 	}
 
 	.wrapper {
-		padding: 20px 0;
+		padding: 0 0 20px 0;
 		border-bottom: var(--bookit_line);
 	}
 

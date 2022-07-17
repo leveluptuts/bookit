@@ -1,4 +1,6 @@
 <script lang="ts">
+	import BookIcon from './BookIcon.svelte';
+	import SideBarHeading from './elements/SideBarHeading.svelte';
 	import { bookit_state } from './state';
 
 	$: selected_title = $bookit_state?.selected_frame?.title;
@@ -21,23 +23,25 @@
 			last_index = selected_raw.indexOf('<Frame', end_index);
 		}
 	}
-
-	// $: selected_code = code.forEach((code_string) => code_string.includes(selected_title));
-	// $: console.log('selected_code', selected_code);
 </script>
 
-<div>
-	<h4>👩‍💻 Code</h4>
-</div>
-{#if selected_title}
-	<code>{code[selected_title]}</code>
-{/if}
+<SideBarHeading><BookIcon name="code" /> Code</SideBarHeading>
 
+<div class="code-section">
+	{#if selected_title}
+		<code>{code[selected_title]}</code>
+	{:else}
+		<p>Please select a frame to see the code.</p>
+	{/if}
+</div>
+
+<!-- TODO Syntax Highlighting -->
 <style lang="scss">
-	h4 {
-		color: white;
+	code,
+	p {
+		color: var(--bookit_color, white);
 	}
-	code {
-		color: white;
+	.code-section {
+		padding: 20px;
 	}
 </style>

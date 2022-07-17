@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let name: 'frame' | 'component' | 'size' | 'canvas';
+	export let name: 'frame' | 'component' | 'size' | 'canvas' | 'code' | 'chev' | 'search' | 'group';
 </script>
 
 {#if name === 'frame'}
@@ -82,4 +82,55 @@
 			fill="currentColor"
 		/></svg
 	>
+{:else if name === 'code'}
+	<svg height="1em" width="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path
+			d="M13.325 3.05011L8.66741 20.4323L10.5993 20.9499L15.2568 3.56775L13.325 3.05011Z"
+			fill="currentColor"
+		/>
+		<path
+			d="M7.61197 18.3608L8.97136 16.9124L8.97086 16.8933L3.87657 12.1121L8.66699 7.00798L7.20868 5.63928L1.04956 12.2017L7.61197 18.3608Z"
+			fill="currentColor"
+		/>
+		<path
+			d="M16.388 18.3608L15.0286 16.9124L15.0291 16.8933L20.1234 12.1121L15.333 7.00798L16.7913 5.63928L22.9504 12.2017L16.388 18.3608Z"
+			fill="currentColor"
+		/>
+	</svg>
+{:else if name === 'chev'}
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path
+			d="M10.5858 6.34317L12 4.92896L19.0711 12L12 19.0711L10.5858 17.6569L16.2427 12L10.5858 6.34317Z"
+			fill="currentColor"
+		/>
+	</svg>
+{:else if name === 'frame'}
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M9 9H3V7H7V3H9V9Z" fill="currentColor" />
+		<path d="M9 15H3V17H7V21H9V15Z" fill="currentColor" />
+		<path d="M21 15H15V21H17V17H21V15Z" fill="currentColor" />
+		<path d="M15 9.00012H21V7.00012H17V3.00012H15V9.00012Z" fill="currentColor" />
+	</svg>
+{:else if name === 'group'}
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path d="M9 9H3V7H7V3H9V9Z" fill="currentColor" />
+		<path d="M9 15H3V17H7V21H9V15Z" fill="currentColor" />
+		<path d="M21 15H15V21H17V17H21V15Z" fill="currentColor" />
+		<path d="M15 9.00012H21V7.00012H17V3.00012H15V9.00012Z" fill="currentColor" />
+	</svg>
+{:else if name === 'search'}
+	<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path
+			fill-rule="evenodd"
+			clip-rule="evenodd"
+			d="M18.319 14.4326C20.7628 11.2941 20.542 6.75347 17.6569 3.86829C14.5327 0.744098 9.46734 0.744098 6.34315 3.86829C3.21895 6.99249 3.21895 12.0578 6.34315 15.182C9.22833 18.0672 13.769 18.2879 16.9075 15.8442C16.921 15.8595 16.9351 15.8745 16.9497 15.8891L21.1924 20.1317C21.5829 20.5223 22.2161 20.5223 22.6066 20.1317C22.9971 19.7412 22.9971 19.1081 22.6066 18.7175L18.364 14.4749C18.3493 14.4603 18.3343 14.4462 18.319 14.4326ZM16.2426 5.28251C18.5858 7.62565 18.5858 11.4246 16.2426 13.7678C13.8995 16.1109 10.1005 16.1109 7.75736 13.7678C5.41421 11.4246 5.41421 7.62565 7.75736 5.28251C10.1005 2.93936 13.8995 2.93936 16.2426 5.28251Z"
+			fill="currentColor"
+		/>
+	</svg>
 {/if}
+
+<style>
+	svg {
+		opacity: 0.6;
+	}
+</style>

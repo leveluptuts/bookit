@@ -2,32 +2,43 @@
 // All stories will show up here automatically via the tree
 import { bookit_state } from './state';
 import BookIcon from './BookIcon.svelte';
+import SideBarHeading from './elements/SideBarHeading.svelte';
+import { slide } from 'svelte/transition';
 // local
 let filter = '';
 </script>
 
 <div class="bookit_navbar">
-	<label class="filter"
-		><span>🔍</span><input placeholder="Filter" type="text" bind:value={filter} /></label
+	<label class="filter">
+		<span>
+			<BookIcon name="search" />
+		</span>
+		<input placeholder="Filter" type="text" bind:value={filter} /></label
 	>
 	<nav>
 		<ul>
 			{#each Object.entries($bookit_state.tree) as [parent, stories] (parent)}
 				<li>
-					<h4>{parent}</h4>
+					<SideBarHeading active={$bookit_state.loaded.parent === parent}>{parent}</SideBarHeading>
 					<ul class="bookit_link_list">
 						{#each stories.filter((story) => story.title.includes(filter)) as story}
 							<li>
 								<a
 									on:click={() => ($bookit_state.selected_frame = null)}
 									class="bookit_link"
+									class:active={$bookit_state.loaded.id === story.id}
 									href={`/book/${story.parent}-${story.title}`}
 								>
-									<span class="icon">
-										<BookIcon name="component" />
-									</span>
+									<BookIcon name="component" />
 									{story.title}
 								</a>
+								{#if $bookit_state.loaded.id === story.id}
+									<ul class="bookit_link_list" transition:slide>
+										{#each Object.entries(story.frames) as [key, frame] (key)}
+											<li class="bookit_link"><BookIcon name="frame" />{frame.title}</li>
+										{/each}
+									</ul>
+								{/if}
 							</li>
 						{/each}
 					</ul>
@@ -37,17 +48,7 @@ let filter = '';
 	</nav>
 </div>
 
-<style>h4 {
-  height: var(--bookit_header_height);
-  font-family: monospace;
-  margin: 0;
-  padding: 8px 10px;
-  border-bottom: var(--bookit_line);
-  color: var(--bookit_color, white);
-  white-space: nowrap;
-}
-
-.bookit_navbar {
+<style>.bookit_navbar {
   color: var(--bookit_color, #fff);
   background: var(--bookit_bg, rgba(0, 0, 0, 0.12));
   border-right: var(--bookit_line);
@@ -68,6 +69,10 @@ nav a {
   padding: 10px;
 }
 
+a.active.bookit_link {
+  color: var(--bookit_accent, #f0c05e);
+}
+
 .bookit_link_list li {
   margin-bottom: 5px;
   white-space: nowrap;
@@ -76,8 +81,7 @@ nav a {
 .bookit_link {
   display: flex;
   gap: 5px;
-  align-items: top;
-  line-height: 1.5;
+  align-items: center;
   font-size: 14px;
 }
 

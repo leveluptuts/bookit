@@ -1,6 +1,7 @@
 <script>var _a, _b;
 import Portal from './utils/Portal.svelte';
 import { bookit_state } from './state';
+import BookIcon from './BookIcon.svelte';
 export let responsive = true;
 export let size = [700, 'auto'];
 export let bg = '#ffffff';
@@ -30,6 +31,7 @@ $: if (title === ((_a = $bookit_state === null || $bookit_state === void 0 ? voi
 	style:width
 	class:selected={$bookit_state?.selected_frame?.title === title}
 >
+	<!-- Change how controls are loaded. These should probably be put into the tree or something -->
 	<h4
 		on:click={() =>
 			($bookit_state.selected_frame = {
@@ -37,6 +39,7 @@ $: if (title === ((_a = $bookit_state === null || $bookit_state === void 0 ? voi
 				controls
 			})}
 	>
+		<BookIcon name="frame" />
 		{title}
 	</h4>
 
