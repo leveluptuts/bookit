@@ -14,7 +14,7 @@
 		<p>
 			Both Docs and Frames live within a Canvas component. The canvas is where your frames and docs
 			live and is the main area where you put your components. A canvas can be configured to have
-			it's background color changed.
+			its background color changed.
 		</p>
 	</Docs>
 	<Frame title="Basic Component">
