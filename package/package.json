@@ -29,11 +29,11 @@
   "license": "ISC",
   "name": "@leveluptuts/bookit",
   "optionalDependencies": {
-    "@leveluptuts/svelte-toy": "^2.0.0"
+    "@leveluptuts/svelte-toy": "^2.0.2"
   },
   "repository": "@leveluptuts/bookit",
   "type": "module",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "exports": {
     "./package.json": "./package.json",
     "./Book.svelte": "./Book.svelte",
