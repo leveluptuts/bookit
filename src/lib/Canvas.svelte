@@ -17,7 +17,6 @@
 </script>
 
 <div style:height="100%">
-	<BookHeader />
 	<div class="bookit_canvas" style={`--bookit_canvas_bg: ${$bookit_state.canvasBg}`}>
 		<Splitpanes theme="level-up-split">
 			<Pane>

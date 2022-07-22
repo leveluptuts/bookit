@@ -3,7 +3,7 @@
 	import TestComponent from './TestComponent.svelte';
 
 	export const title = 'Multi Frames';
-	export const parent = 'Parent';
+	export const parent = 'Components';
 </script>
 
 <Canvas>

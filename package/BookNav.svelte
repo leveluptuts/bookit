@@ -54,6 +54,7 @@ let filter = '';
   border-right: var(--bookit_line);
   height: 100%;
   padding: 10px 0;
+  overflow: scroll;
 }
 
 nav a {

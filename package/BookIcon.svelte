@@ -131,5 +131,6 @@
 <style>
 	svg {
 		opacity: 0.6;
+		flex-shrink: 0;
 	}
 </style>
