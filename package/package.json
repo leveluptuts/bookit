@@ -33,7 +33,7 @@
   },
   "repository": "@leveluptuts/bookit",
   "type": "module",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "exports": {
     "./package.json": "./package.json",
     "./Book.svelte": "./Book.svelte",
@@ -43,6 +43,7 @@
     "./BookInput.svelte": "./BookInput.svelte",
     "./BookNav.svelte": "./BookNav.svelte",
     "./Bookit.svelte": "./Bookit.svelte",
+    "./Callout.svelte": "./Callout.svelte",
     "./Canvas.svelte": "./Canvas.svelte",
     "./Code.svelte": "./Code.svelte",
     "./Controls.svelte": "./Controls.svelte",

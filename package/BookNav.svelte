@@ -19,20 +19,21 @@ let filter = '';
 		<ul>
 			{#each Object.entries($bookit_state.tree) as [parent, stories] (parent)}
 				<li>
-					<SideBarHeading active={$bookit_state.loaded.parent === parent}>{parent}</SideBarHeading>
+					<SideBarHeading active={$bookit_state?.loaded?.parent === parent}>{parent}</SideBarHeading
+					>
 					<ul class="bookit_link_list">
 						{#each stories.filter((story) => story.title.includes(filter)) as story}
 							<li>
 								<a
 									on:click={() => ($bookit_state.selected_frame = null)}
 									class="bookit_link"
-									class:active={$bookit_state.loaded.id === story.id}
+									class:active={$bookit_state?.loaded?.id === story.id}
 									href={`/book/${story.parent}-${story.title}`}
 								>
 									<BookIcon name="component" />
 									{story.title}
 								</a>
-								{#if $bookit_state.loaded.id === story.id}
+								{#if $bookit_state?.loaded?.id === story.id}
 									<ul class="bookit_link_list" transition:slide>
 										{#each Object.entries(story.frames) as [key, frame] (key)}
 											<li class="bookit_link"><BookIcon name="frame" />{frame.title}</li>

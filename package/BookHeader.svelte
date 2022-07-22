@@ -11,6 +11,7 @@ import BookIcon from './BookIcon.svelte';
 	>
 		<BookIcon name="chev" />
 	</button>
+
 	<BookDropMenu
 		icon="canvas"
 		buttonText="Canvas Bg"
