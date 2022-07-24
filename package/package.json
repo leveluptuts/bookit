@@ -1,5 +1,5 @@
 {
-  "author": "Scott Tolinski",
+  "author": "Scott Tolinski | Level Up Tutorials",
   "bugs": {
     "url": "https://github.com/leveluptuts/bookit/issues"
   },
@@ -8,8 +8,9 @@
     "svelte-splitpanes": "^0.7.1"
   },
   "devDependencies": {
+    "@leveluptuts/svelte-toy": "^2.0.2",
     "@sveltejs/adapter-static": "1.0.0-next.38",
-    "@sveltejs/kit": "1.0.0-next.390",
+    "@sveltejs/kit": "1.0.0-next.392",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint": "^8.20.0",
@@ -17,7 +18,7 @@
     "eslint-plugin-svelte3": "^4.0.0",
     "prettier": "^2.7.1",
     "prettier-plugin-svelte": "^2.7.0",
-    "sass": "^1.52.3",
+    "sass": "^1.54.0",
     "svelte": "3.49.0",
     "svelte-check": "^2.7.2",
     "svelte-preprocess": "^4.10.7",
@@ -28,12 +29,9 @@
   "homepage": "https://bookit.leveluptutorials.com",
   "license": "ISC",
   "name": "@leveluptuts/bookit",
-  "optionalDependencies": {
-    "@leveluptuts/svelte-toy": "^2.0.2"
-  },
   "repository": "@leveluptuts/bookit",
   "type": "module",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "exports": {
     "./package.json": "./package.json",
     "./Book.svelte": "./Book.svelte",
