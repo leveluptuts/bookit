@@ -21,20 +21,20 @@
 		<Splitpanes theme="level-up-split">
 			<Pane>
 				<Splitpanes horizontal={true} theme="level-up-split">
-					<Pane size={$bookit_state.code === 'VISIBLE' ? '80' : '100'}>
+					<Pane size={$bookit_state.code === 'VISIBLE' ? 80 : 100}>
 						<div class="bookit_viewport">
 							<slot />
 						</div>
 					</Pane>
 					{#if $bookit_state.code === 'VISIBLE'}
-						<Pane size="20">
+						<Pane size={20}>
 							<Code />
 						</Pane>
 					{/if}
 				</Splitpanes>
 			</Pane>
-			{#if $bookit_state?.selected_frame?.title}
-				<Pane size="20">
+			{#if $bookit_state?.selected_frame}
+				<Pane size={20}>
 					<FrameControls />
 					<Controls />
 				</Pane>

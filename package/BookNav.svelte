@@ -36,7 +36,13 @@ let filter = '';
 								{#if $bookit_state?.loaded?.id === story.id}
 									<ul class="bookit_link_list" transition:slide>
 										{#each Object.entries(story.frames) as [key, frame] (key)}
-											<li class="bookit_link"><BookIcon name="frame" />{frame.title}</li>
+											<li
+												on:click={() => ($bookit_state.selected_frame = encodeURI(frame.title))}
+												class="bookit_link"
+												class:active={$bookit_state?.selected_frame === encodeURI(frame.title)}
+											>
+												<BookIcon name="frame" />{frame.title}
+											</li>
 										{/each}
 									</ul>
 								{/if}
@@ -71,7 +77,7 @@ nav a {
   padding: 10px;
 }
 
-a.active.bookit_link {
+.active {
   color: var(--bookit_accent, #f0c05e);
 }
 

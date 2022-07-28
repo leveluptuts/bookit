@@ -3,11 +3,12 @@ import set from 'just-safe-set';
 export let key;
 export let value;
 export let path;
+$: selected_title = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame;
 function updateStore(value) {
     // If it's single value
     bookit_state.update((u) => {
         let newData = { ...u };
-        set(newData, 'selected_frame.controls.' + path, value);
+        set(newData, 'loaded.frames.' + selected_title + '.controls.' + path, value);
         return newData;
     });
 }
@@ -85,7 +86,7 @@ function updateStore(value) {
 		border-radius: 1px;
 		outline-offset: 1px;
 		width: 100%;
-		background: var(--toy-background-int);
+		background: transparent;
 	}
 
 	/* Chrome, Safari, Edge, Opera */

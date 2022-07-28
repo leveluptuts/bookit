@@ -1,7 +1,9 @@
-<script>export let active = false;
+<script>import { createEventDispatcher } from 'svelte';
+const dispatch = createEventDispatcher();
+export let active = false;
 </script>
 
-<h4 class:active>
+<h4 class:active on:click={() => dispatch('click')}>
 	<slot />
 </h4>
 

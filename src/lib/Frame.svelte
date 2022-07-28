@@ -11,37 +11,38 @@
 	export let title: string;
 	export let controls: null | any = null;
 
-	$bookit_state.loaded.frames[title] = { title, padding, border, bg, size, checker };
+	let encoded_title = encodeURI(title);
+	$: encoded_title = encodeURI(title);
+
+	$bookit_state.loaded.frames[encoded_title] = {
+		title,
+		padding,
+		border,
+		bg,
+		size,
+		checker,
+		controls
+	};
 
 	// Local controls are what passes the props from the "Controls" section to the slot props
 	// This makes props available to the story component
-	$: localControls = controls;
-	$: local_bg = $bookit_state.loaded.frames[title].bg;
-	$: local_size = $bookit_state.loaded.frames[title].size;
-	$: height = local_size[1] + (typeof local_size[1] === 'number' ? 'px' : '');
-	$: width = local_size[0] + (typeof local_size[0] === 'number' ? 'px' : '');
-	$: local_border = $bookit_state.loaded.frames[title].border;
-	$: local_checker = $bookit_state.loaded.frames[title].checker;
-	$: local_padding = $bookit_state.loaded.frames[title].padding;
-
-	$: if (title === $bookit_state?.selected_frame?.title) {
-		localControls = $bookit_state?.selected_frame?.controls;
-	}
+	$: local_bg = $bookit_state.loaded.frames[encoded_title]?.bg;
+	$: local_size = $bookit_state.loaded.frames[encoded_title]?.size;
+	$: height = local_size?.[1] + (typeof local_size?.[1] === 'number' ? 'px' : '');
+	$: width = local_size?.[0] + (typeof local_size?.[0] === 'number' ? 'px' : '');
+	$: local_border = $bookit_state.loaded.frames[encoded_title]?.border;
+	$: local_checker = $bookit_state.loaded.frames[encoded_title]?.checker;
+	$: local_padding = $bookit_state.loaded.frames[encoded_title]?.padding;
+	$: local_controls = $bookit_state.loaded.frames[encoded_title]?.controls;
 </script>
 
 <div
 	class="bookit_frame_wrapper"
 	style:width
-	class:selected={$bookit_state?.selected_frame?.title === title}
+	class:selected={$bookit_state?.selected_frame === encoded_title}
 >
 	<!-- Change how controls are loaded. These should probably be put into the tree or something -->
-	<h4
-		on:click={() =>
-			($bookit_state.selected_frame = {
-				title,
-				controls
-			})}
-	>
+	<h4 on:click={() => ($bookit_state.selected_frame = encoded_title)}>
 		<BookIcon name="frame" />
 		{title}
 	</h4>
@@ -66,7 +67,7 @@
 		{/if}
 		<div class="bookit_content" style:border={local_border ? 'dashed 1px #999' : 'none'}>
 			<Portal>
-				<slot props={localControls} />
+				<slot props={local_controls} />
 			</Portal>
 		</div>
 	</div>

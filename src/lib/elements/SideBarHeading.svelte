@@ -1,8 +1,12 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+
 	export let active: boolean = false;
 </script>
 
-<h4 class:active>
+<h4 class:active on:click={() => dispatch('click')}>
 	<slot />
 </h4>
 

@@ -3,10 +3,12 @@
 	import BookHeader from './BookHeader.svelte';
 	import BookNav from './BookNav.svelte';
 	import { bookit_state } from './state';
+
+	export let title = 'Bookit';
 </script>
 
 <div class="book-wrapper">
-	<BookHeader />
+	<BookHeader {title} />
 
 	<Splitpanes theme="level-up-split">
 		<Pane size={$bookit_state.nav === 'VISIBLE' ? '15' : '0'}>

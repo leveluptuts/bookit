@@ -4,6 +4,8 @@ declare const __propDef: {
         active?: boolean | undefined;
     };
     events: {
+        click: CustomEvent<any>;
+    } & {
         [evt: string]: CustomEvent<any>;
     };
     slots: {

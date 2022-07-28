@@ -1,4 +1,4 @@
-<script>var _a, _b;
+<script>var _a, _b, _c, _d, _e, _f;
 import Portal from './utils/Portal.svelte';
 import { bookit_state } from './state';
 import BookIcon from './BookIcon.svelte';
@@ -10,35 +10,36 @@ export let border = true;
 export let checker = false;
 export let title;
 export let controls = null;
-$bookit_state.loaded.frames[title] = { title, padding, border, bg, size, checker };
+let encoded_title = encodeURI(title);
+$: encoded_title = encodeURI(title);
+$bookit_state.loaded.frames[encoded_title] = {
+    title,
+    padding,
+    border,
+    bg,
+    size,
+    checker,
+    controls
+};
 // Local controls are what passes the props from the "Controls" section to the slot props
 // This makes props available to the story component
-$: localControls = controls;
-$: local_bg = $bookit_state.loaded.frames[title].bg;
-$: local_size = $bookit_state.loaded.frames[title].size;
-$: height = local_size[1] + (typeof local_size[1] === 'number' ? 'px' : '');
-$: width = local_size[0] + (typeof local_size[0] === 'number' ? 'px' : '');
-$: local_border = $bookit_state.loaded.frames[title].border;
-$: local_checker = $bookit_state.loaded.frames[title].checker;
-$: local_padding = $bookit_state.loaded.frames[title].padding;
-$: if (title === ((_a = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame) === null || _a === void 0 ? void 0 : _a.title)) {
-    localControls = (_b = $bookit_state === null || $bookit_state === void 0 ? void 0 : $bookit_state.selected_frame) === null || _b === void 0 ? void 0 : _b.controls;
-}
+$: local_bg = (_a = $bookit_state.loaded.frames[encoded_title]) === null || _a === void 0 ? void 0 : _a.bg;
+$: local_size = (_b = $bookit_state.loaded.frames[encoded_title]) === null || _b === void 0 ? void 0 : _b.size;
+$: height = (local_size === null || local_size === void 0 ? void 0 : local_size[1]) + (typeof (local_size === null || local_size === void 0 ? void 0 : local_size[1]) === 'number' ? 'px' : '');
+$: width = (local_size === null || local_size === void 0 ? void 0 : local_size[0]) + (typeof (local_size === null || local_size === void 0 ? void 0 : local_size[0]) === 'number' ? 'px' : '');
+$: local_border = (_c = $bookit_state.loaded.frames[encoded_title]) === null || _c === void 0 ? void 0 : _c.border;
+$: local_checker = (_d = $bookit_state.loaded.frames[encoded_title]) === null || _d === void 0 ? void 0 : _d.checker;
+$: local_padding = (_e = $bookit_state.loaded.frames[encoded_title]) === null || _e === void 0 ? void 0 : _e.padding;
+$: local_controls = (_f = $bookit_state.loaded.frames[encoded_title]) === null || _f === void 0 ? void 0 : _f.controls;
 </script>
 
 <div
 	class="bookit_frame_wrapper"
 	style:width
-	class:selected={$bookit_state?.selected_frame?.title === title}
+	class:selected={$bookit_state?.selected_frame === encoded_title}
 >
 	<!-- Change how controls are loaded. These should probably be put into the tree or something -->
-	<h4
-		on:click={() =>
-			($bookit_state.selected_frame = {
-				title,
-				controls
-			})}
-	>
+	<h4 on:click={() => ($bookit_state.selected_frame = encoded_title)}>
 		<BookIcon name="frame" />
 		{title}
 	</h4>
@@ -63,7 +64,7 @@ $: if (title === ((_a = $bookit_state === null || $bookit_state === void 0 ? voi
 		{/if}
 		<div class="bookit_content" style:border={local_border ? 'dashed 1px #999' : 'none'}>
 			<Portal>
-				<slot props={localControls} />
+				<slot props={local_controls} />
 			</Portal>
 		</div>
 	</div>

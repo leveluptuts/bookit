@@ -1,16 +1,18 @@
 <script lang="ts">
 	import { bookit_state } from './state';
 	import set from 'just-safe-set';
-	export let key;
-	export let value;
-	export let path;
+	export let key: string;
+	export let value: string | boolean | number;
+	export let path: string;
 
-	function updateStore(value) {
+	$: selected_title = $bookit_state?.selected_frame;
+
+	function updateStore(value: string | boolean | number) {
 		// If it's single value
 
 		bookit_state.update((u) => {
 			let newData = { ...u };
-			set(newData, 'selected_frame.controls.' + path, value);
+			set(newData, 'loaded.frames.' + selected_title + '.controls.' + path, value);
 			return newData;
 		});
 	}
@@ -88,7 +90,7 @@
 		border-radius: 1px;
 		outline-offset: 1px;
 		width: 100%;
-		background: var(--toy-background-int);
+		background: transparent;
 	}
 
 	/* Chrome, Safari, Edge, Opera */

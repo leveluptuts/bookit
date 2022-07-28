@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import { Canvas, Frame, Docs, Callout } from '$lib';
+	import { Canvas, Frame, Docs, Callout, PropTable } from '$lib';
 
 	import TestComponent from './TestComponent.svelte';
 
@@ -25,6 +25,19 @@
 		</Callout>
 		<Callout type="warning">This is a 'warning'.</Callout>
 		<Callout type="correct">This is a 'correct'.</Callout>
+		<PropTable
+			props={{
+				title: {
+					type: 'string',
+					text: 'The text that is output in the test button'
+				},
+				margin: {
+					type: 'string',
+					text: 'Not a real prop on this component, but here for example purposes.',
+					default: '0px'
+				}
+			}}
+		/>
 	</Docs>
 	<Frame title="Basic Component">
 		<TestComponent title="Hello World" />

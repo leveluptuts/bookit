@@ -1,5 +1,7 @@
-<script>import BookIcon from './BookIcon.svelte';
-export let type = 'info';
+<script lang="ts">
+	import BookIcon from '../BookIcon.svelte';
+
+	export let type: 'warning' | 'info' | 'correct' = 'info';
 </script>
 
 <div class={type}>

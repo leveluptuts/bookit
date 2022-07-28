@@ -2,9 +2,11 @@
 	import { bookit_state } from './state';
 	import BookDropMenu from './BookDropMenu.svelte';
 	import BookIcon from './BookIcon.svelte';
+	export let title: string;
 </script>
 
 <div class="wrapper">
+	<h5>{title}</h5>
 	<button
 		class="nav_toggle"
 		class:open={$bookit_state.nav === 'VISIBLE'}
@@ -30,9 +32,14 @@
 </div>
 
 <style>
+	h5 {
+		margin: 0;
+		color: white;
+	}
+
 	.nav_toggle {
-		position: absolute;
-		left: 0;
+		margin-right: auto;
+		left: 100px;
 		width: auto;
 	}
 
